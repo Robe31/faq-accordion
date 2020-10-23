@@ -118,6 +118,10 @@
     }
     .faq {
         padding-right: 1rem;
+        &__title {
+            align-self: flex-start;
+            font-size: 3rem;
+        }
     }
     .main {
         #main__img__box {

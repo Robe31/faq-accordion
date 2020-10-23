@@ -191,6 +191,11 @@
   .faq {
     padding-right: 1rem;
   }
+  .faq__title {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    font-size: 3rem;
+  }
   .main #main__img__box {
     display: block;
     position: absolute;
