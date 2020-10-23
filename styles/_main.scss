@@ -1,0 +1,58 @@
+.main {
+    height: 100vh;
+    background: linear-gradient($grad1, $grad2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: clamp(300px, 90vw, 768px);
+}
+#img {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    img {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -59%);
+    }
+}
+.faq {
+    display: flex;
+    flex-direction: column;
+    &__title {
+        align-self: center;
+    }
+    &__list {
+        list-style: none;
+        hr {
+            border-color: $dividerColor;
+        }
+        &__q {
+            color: $txtColor1;
+            &.active {
+                color: $prim2;
+            }
+        }
+        &__a {
+            color: $txtColor2;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+        &__img {
+            // float: right;
+            &.active {
+                transform: rotate(180deg);
+                transition: all 0.5s ease-in-out;
+            }
+        }
+    }
+}
