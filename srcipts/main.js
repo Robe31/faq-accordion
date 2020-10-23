@@ -1,6 +1,6 @@
 const UI = (() => {
     const dom = {
-        faqImg: document.querySelector('#img__src'),
+        list: document.querySelector('.faq__list'),
     }
 
     return {
@@ -11,12 +11,18 @@ const UI = (() => {
 })();
 
 const App = ((ui) => {
-    const uiEl = ui.getUiElements();
+    const el = ui.getUiElements();
 
-    
+    function showAnswer(list) {
+        list.addEventListener('click', (e) => {
+            if(e.target.parentNode.classList.contains("faq__list__q")){
+                e.target.parentNode.parentNode.classList.toggle('active');
+            }
+        })
+    }
     return {
         init: () => {
-            
+            showAnswer(el.list)
         }
     }
 })(UI);

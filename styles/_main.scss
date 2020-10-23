@@ -4,14 +4,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: scroll;
+    position: relative;
+    #main__img__box {
+        display: none;
+    }
 }
 .card {
     background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    width: clamp(300px, 90vw, 768px);
+    padding: 1.5rem 1.5rem 4.5rem 1.5rem;
+    width: clamp(300px, 90vw, 900px);
+    border-radius: 1.5rem;
 }
 #img {
     position: relative;
@@ -20,39 +26,129 @@
     img {
         position: absolute;
         left: 50%;
-        transform: translate(-50%, -59%);
+    }
+    &__box {
+        z-index: 5;
+        transform: translate(-93%, -57%) scale(0.55);
+        // display: none;
+    }
+    &__top {
+        transform: translate(-50%, -65%);
+    }
+    &__bott {
+        transform: translate(-50%, -69%);
     }
 }
 .faq {
     display: flex;
     flex-direction: column;
+    width: 100%;
     &__title {
         align-self: center;
+        font-size: 3rem;
     }
     &__list {
         list-style: none;
+        padding-bottom: 1rem;
         hr {
-            border-color: $dividerColor;
+            border: $dividerColor solid 1px;
+        }
+        li {
+            position: relative;
+            overflow: hidden;
+            height: initial;
+            &.active {
+                height: 100%;
+                transition: height 0.5s ease-in-out;
+                .faq__list__q {
+                    p {
+                        font-weight: 700;
+                    }
+
+                    img {
+                        transform: rotate(180deg);
+                        transition: all 0.5s ease-in-out;
+                    }
+                }
+                .faq__list__a {
+                    position: relative;
+                    padding-bottom: 1.5rem;
+                    transform: translateY(0);
+                    transition: transform 0.5s ease-in-out;
+                }
+            }
         }
         &__q {
-            color: $txtColor1;
-            &.active {
-                color: $prim2;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            z-index: 5;
+            p {
+                color: $txtColor1;
+                padding: 1.5rem 0;
+                &:hover {
+                    color: $prim2;
+                }
+            }
+            img {
+                cursor: pointer;
+                transition: all 0.5s ease-in-out;
             }
         }
         &__a {
+            position: absolute;
             color: $txtColor2;
-            display: none;
-            &.active {
-                display: block;
+            transform: translateY(-300%);
+        }
+    }
+}
+@media (min-width: 425px) {
+    .faq__list__a {
+        position: absolute;
+        color: $txtColor2;
+        transform: translateY(-500%);
+    }
+}
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+        padding: 0 1rem 0 0;
+        height: 75vh;
+        overflow: hidden;
+    }
+    .faq {
+        padding-right: 1rem;
+    }
+    .main {
+        #main__img__box {
+            display: block;
+            position: absolute;
+            width: clamp(300px, 90vw, 900px);
+            z-index: 1;
+            img {
+                position: absolute;
+                z-index: 5;
+                left: 0;
+                transform: translate(-50%, -24%);
             }
         }
-        &__img {
-            // float: right;
-            &.active {
-                transform: rotate(180deg);
-                transition: all 0.5s ease-in-out;
-            }
+    }
+    #img {
+        position: relative;
+        width: 100%;
+        img {
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+        &__box {
+            display: none;
+        }
+        &__top {
+            transform: translate(-65%, -50%);
+        }
+        &__bott {
+            transform: translate(-20%, -50%);
         }
     }
 }
