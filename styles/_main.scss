@@ -1,10 +1,10 @@
 .main {
     height: 100vh;
+    max-height: 950px;
     background: linear-gradient($grad1, $grad2);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
     position: relative;
     #main__img__box {
         display: none;

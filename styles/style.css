@@ -10,6 +10,7 @@
 
 .main {
   height: 100vh;
+  max-height: 950px;
   background: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
   background: linear-gradient(#af67e9, #6565e7);
   display: -webkit-box;
@@ -21,7 +22,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: scroll;
   position: relative;
 }
 
